@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "xN4UfqVoOFqwnPQ5ItHjC9mXaGl5UcHYr/ICIzPleUxuuHdpi7210yBtM+8LTi0TWy49109CpBowRFpdm0eYZw==",
+  "success": true,
+  "projectFilePath": "/home/ronan/prog/aed/aed.csproj",
+  "expectedPackageFiles": [
+    "/home/ronan/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.5/microsoft.aspnetcore.app.ref.8.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}
