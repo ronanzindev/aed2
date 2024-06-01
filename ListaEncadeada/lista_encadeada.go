@@ -10,6 +10,8 @@ type No struct {
 	next    *No
 }
 
+func (n *No) Element() string { return n.element }
+
 type ListaEncadeada struct {
 	head *No
 	qtd  int
@@ -118,6 +120,22 @@ func (l *ListaEncadeada) DeletarNaPos(pos int) {
 	}
 	anterior.next = aux.next
 	l.qtd--
+}
+
+func (l *ListaEncadeada) Buscar(pos int) *No {
+	if pos < 0 {
+		return nil
+	}
+	if pos > l.qtd {
+		pos = l.qtd - 1
+	}
+	count := 0
+	aux := l.head
+	for count < pos {
+		aux = aux.next
+		count++
+	}
+	return aux
 }
 
 func (l *ListaEncadeada) Printar() {

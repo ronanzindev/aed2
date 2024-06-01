@@ -97,6 +97,15 @@ public class Lista
     anterior.setNext(aux.getNext());
     qtd--;
   }
+  public No Buscar(int pos) {
+    if(pos < 0) return null;
+    if(pos > qtd) pos = qtd -1;
+    No aux = head;
+    for(int i = 0; i < pos; i++) {
+      aux = aux.getNext();
+    }
+    return aux;
+  }
   public void printar()
   {
     No aux = head;
