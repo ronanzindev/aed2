@@ -10,11 +10,18 @@ type No struct {
 	next    *No
 }
 
+func (n *No) Next() *No {
+	return n.next
+}
 func (n *No) Element() string { return n.element }
 
 type ListaEncadeada struct {
 	head *No
 	qtd  int
+}
+
+func (l *ListaEncadeada) Head() *No {
+	return l.head
 }
 
 func NewListaEncadeada() *ListaEncadeada {

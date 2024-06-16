@@ -9,7 +9,9 @@ public class Lista
     head = new No("a");
     qtd = 0;
   }
-  public void inserirNoInicio(No n)
+  public No Head() => head;
+  public int Qtd() => qtd;
+   public void inserirNoInicio(No n)
   {
     n.setNext(head.getNext());
     head.setNext(n);
