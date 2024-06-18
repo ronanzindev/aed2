@@ -6,7 +6,7 @@ public class Lista
 
   public Lista()
   {
-    head = new No("a");
+    head = new No("head");
     qtd = 0;
   }
   public No Head() => head;
@@ -26,30 +26,46 @@ public class Lista
     qtd++;
   }
   // la ele
-  public void inserirNaPos(int pos, No n)
-  {
-    if (pos < 0)
-    {
-      return;
-    }
-    if (pos > qtd) pos = qtd - 1;
-    if (pos == 0)
-    {
-      n.setNext(head);
-      head = n;
+  // public void inserirNaPos(int pos, No n)
+  // {
+  //   if (pos < 0)
+  //   {
+  //     return;
+  //   }
+  //   if (pos > qtd) pos = qtd - 1;
+  //   if (pos == 0)
+  //   {
+  //     n.setNext(head);
+  //     head = n;
+  //     qtd++;
+  //     return;
+  //   }
+  //   No aux = head;
+  //   for (int i = 0; i < pos - 1; pos++)
+  //   {
+  //     aux = aux.getNext();
+  //   }
+  //   n.setNext(aux.getNext());
+  //   aux.setNext(n);
+  //   qtd++;
+  // }
+  public void inserirNaPos(int pos, No n) {
+    if(pos < 0) return;
+    if(pos > qtd) pos = qtd;
+    if(pos == 0) {
+      n.setNext(head.getNext());
+      head.setNext(n);
       qtd++;
       return;
     }
-    No aux = head;
-    for (int i = 0; i < pos - 1; pos++)
-    {
+    No aux = head.getNext();
+    for(int i = 0; i < pos - 1; i++) {
       aux = aux.getNext();
-    }
+    } 
     n.setNext(aux.getNext());
     aux.setNext(n);
     qtd++;
   }
-
   public void inserirOrdenado(No n)
   {
     if (string.Compare(n.getElement(), head.getElement()) == -1)
@@ -89,7 +105,7 @@ public class Lista
   public void deletarNaPos(int pos) {
     if(pos  < 0) return;
     if(pos > qtd) pos = qtd -1;
-    if(pos == 0) head = head.getNext();
+    if(pos == 0) {head = head.getNext(); qtd--;}
     No anterior = head;
     No aux = head.getNext();
     for(int i = 0; i  < pos -1; i++ ) {
