@@ -1,7 +1,11 @@
 1)d
+
 2)c
+
 3)b 
+
 4)c
+
 5)a) Não pois são privados. Só podem ser acessados diretamento dentro de sua classe
 5)b) Não pois o valor do atributo posX é um double.  Poderia adicionamos um .toString() ai final do return
 5)c) Não ira retornar error, ja que é permitido multiplos construtore C# tendo apenas suas assinaturas diferentes.
