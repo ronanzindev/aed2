@@ -7,9 +7,13 @@
 4)c
 
 5)a) Não pois são privados. Só podem ser acessados diretamento dentro de sua classe
+
 5)b) Não pois o valor do atributo posX é um double.  Poderia adicionamos um .toString() ai final do return
+
 5)c) Não ira retornar error, ja que é permitido multiplos construtore C# tendo apenas suas assinaturas diferentes.
+
 5)d) Irá retornar o nome do corpo em minusculo.
+
 6)
 ```c#
 class No {
@@ -74,19 +78,35 @@ class ListaEncadeada {
 }
 ```
 10) c
+
 11) a
+
 12) b  
+
 13) d
+
 14) b
+
 15) a
+
 16) a
+
 17) c
+
 18) b
+
 19) a
+
 20) b
+
 21)a)v
+
 21)b)iii
+
 21)c)iv
+
 22)c
+
 23)b
+
 24)d
