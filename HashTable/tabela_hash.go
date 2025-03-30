@@ -45,7 +45,7 @@ func (t *TabelaHashEnderecamentoAberto) Inserir(chave int, valor string) {
 
 func (t *TabelaHashEnderecamentoAberto) Buscar(chave int) string {
 	pos := t.HahsChaveDivisao(chave)
-	for i := 0; i < t.size; i++ {
+	for i := range t.size {
 		novaPos := t.sondagemLinear(pos, i)
 		if t.items[novaPos] == nil {
 			return ""
