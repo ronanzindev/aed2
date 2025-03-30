@@ -1,24 +1,24 @@
 package queue
 
-import listaencadeada "aed/ListaEncadeada"
+import "aed/linkedList"
 
 type Fila struct {
-	lista *listaencadeada.ListaEncadeada
+	lista *linkedList.LinkedList
 }
 
 func NewFila() *Fila {
 	return &Fila{
-		lista: listaencadeada.NewListaEncadeada(),
+		lista: linkedList.NewLinkedList(),
 	}
 }
 
 func (f *Fila) Push(e string) {
-	f.lista.InserirNoFinal(e)
+	f.lista.InsertAtEnd(e)
 }
 
 func (f *Fila) Pop() string {
-	n := f.lista.Buscar(1)
-	f.lista.DeletarNaPos(1)
+	n := f.lista.Search(1)
+	f.lista.DeleteAtPosition(1)
 	if n == nil {
 		return ""
 	}
@@ -26,5 +26,5 @@ func (f *Fila) Pop() string {
 }
 
 func (f *Fila) Printar() {
-	f.lista.Printar()
+	f.lista.Print()
 }

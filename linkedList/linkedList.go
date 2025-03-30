@@ -1,52 +1,52 @@
-package listaencadeada
+package linkedList
 
 import (
 	"fmt"
 	"strings"
 )
 
-type No struct {
+type Node struct {
 	element string
-	next    *No
+	next    *Node
 }
 
-func (n *No) Next() *No {
+func (n *Node) Next() *Node {
 	return n.next
 }
-func (n *No) Element() string { return n.element }
+func (n *Node) Element() string { return n.element }
 
-type ListaEncadeada struct {
-	head *No
+type LinkedList struct {
+	head *Node
 	qtd  int
 }
 
-func (l *ListaEncadeada) Head() *No {
+func (l *LinkedList) Head() *Node {
 	return l.head
 }
 
-func NewListaEncadeada() *ListaEncadeada {
-	return &ListaEncadeada{head: &No{element: "a", next: nil}}
+func NewLinkedList() *LinkedList {
+	return &LinkedList{head: &Node{element: "a", next: nil}}
 }
 
-func (l *ListaEncadeada) InserirNoInicio(element string) {
-	no := &No{element: element}
+func (l *LinkedList) InsertAtBeggining(element string) {
+	no := &Node{element: element}
 	no.next = l.head.next
 	l.head.next = no
 	l.qtd++
 }
 
-func (l *ListaEncadeada) InserirNoFinal(element string) {
+func (l *LinkedList) InsertAtEnd(element string) {
 	aux := l.head
 	for aux.next != nil {
 		aux = aux.next
 	}
-	aux.next = &No{element: element}
+	aux.next = &Node{element: element}
 	l.qtd++
 }
 
 // la ele
-func (l *ListaEncadeada) InserirNaPos(pos int, element string) {
-	n := &No{element: element}
+func (l *LinkedList) InsertAtPosition(pos int, element string) {
+	n := &Node{element: element}
 	if pos < 0 {
 		return
 	}
@@ -69,8 +69,8 @@ func (l *ListaEncadeada) InserirNaPos(pos int, element string) {
 	aux.next = n
 	l.qtd++
 }
-func (l *ListaEncadeada) InserirOrdenado(element string) {
-	n := &No{element: element}
+func (l *LinkedList) InsertSorting(element string) {
+	n := &Node{element: element}
 	if strings.Compare(n.element, l.head.element) == -1 {
 		n.next = l.head
 		l.head = n
@@ -88,7 +88,7 @@ func (l *ListaEncadeada) InserirOrdenado(element string) {
 	l.qtd++
 }
 
-func (l *ListaEncadeada) DeletarNoInicio() {
+func (l *LinkedList) DeleteAtBeggining() {
 	if l.head.next == nil {
 		return
 	}
@@ -96,7 +96,7 @@ func (l *ListaEncadeada) DeletarNoInicio() {
 	l.qtd--
 }
 
-func (l *ListaEncadeada) DeletarNoFinal() {
+func (l *LinkedList) DeleteAtEnd() {
 	aux := l.head
 	for aux.next.next != nil {
 		aux = aux.next
@@ -105,7 +105,7 @@ func (l *ListaEncadeada) DeletarNoFinal() {
 	l.qtd--
 }
 
-func (l *ListaEncadeada) DeletarNaPos(pos int) {
+func (l *LinkedList) DeleteAtPosition(pos int) {
 	if pos < 0 {
 		return
 	}
@@ -129,7 +129,7 @@ func (l *ListaEncadeada) DeletarNaPos(pos int) {
 	l.qtd--
 }
 
-func (l *ListaEncadeada) Buscar(pos int) *No {
+func (l *LinkedList) Search(pos int) *Node {
 	if pos < 0 {
 		return nil
 	}
@@ -145,7 +145,7 @@ func (l *ListaEncadeada) Buscar(pos int) *No {
 	return aux
 }
 
-func (l *ListaEncadeada) Printar() {
+func (l *LinkedList) Print() {
 	i := 0
 	aux := l.head
 	for aux != nil {
@@ -153,4 +153,22 @@ func (l *ListaEncadeada) Printar() {
 		aux = aux.next
 		i++
 	}
+}
+
+func (l *LinkedList) Reverse() *LinkedList {
+	newLinkedList := &LinkedList{}
+	current := l.head
+	if l == nil || current == nil {
+		return newLinkedList
+	}
+	var next *Node
+	var previous *Node
+	for current != nil {
+		next = current.next
+		current.next = previous
+		previous = current
+		current = next
+	}
+	newLinkedList.head = previous
+	return newLinkedList
 }

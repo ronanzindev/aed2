@@ -1,27 +1,27 @@
 package stack
 
-import listaencadeada "aed/ListaEncadeada"
+import "aed/linkedList"
 
 type Pilha struct {
-	lista *listaencadeada.ListaEncadeada
+	lista *linkedList.LinkedList
 }
 
 func NewPilha() *Pilha {
 	return &Pilha{
-		lista: listaencadeada.NewListaEncadeada(),
+		lista: linkedList.NewLinkedList(),
 	}
 }
 
 func (p *Pilha) Push(element string) {
-	p.lista.InserirNaPos(1, element)
+	p.lista.InsertAtPosition(1, element)
 }
 
 func (p *Pilha) Pop() string {
-	No := p.lista.Buscar(1)
-	p.lista.DeletarNaPos(1)
+	No := p.lista.Search(1)
+	p.lista.DeleteAtPosition(1)
 	return No.Element()
 }
 
 func (p *Pilha) Printar() {
-	p.lista.Printar()
+	p.lista.Print()
 }

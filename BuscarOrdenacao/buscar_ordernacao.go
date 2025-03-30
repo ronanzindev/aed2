@@ -1,21 +1,19 @@
 package buscarordenacao
 
-import (
-	listaencadeada "aed/ListaEncadeada"
-)
+import "aed/linkedList"
 
 type Buscar struct {
-	lista *listaencadeada.ListaEncadeada
+	lista *linkedList.LinkedList
 }
 
 func NewBuscar() *Buscar {
-	lista := listaencadeada.NewListaEncadeada()
-	lista.InserirNoInicio("c")
-	lista.InserirNoInicio("b")
-	lista.InserirNoInicio("a")
+	lista := linkedList.NewLinkedList()
+	lista.InsertAtBeggining("c")
+	lista.InsertAtBeggining("b")
+	lista.InsertAtBeggining("a")
 	return &Buscar{lista: lista}
 }
-func (b *Buscar) BuscaSequencial(element string) *listaencadeada.No {
+func (b *Buscar) BuscaSequencial(element string) *linkedList.Node {
 	aux := b.lista.Head()
 	for aux != nil {
 		if aux.Element() == element {
